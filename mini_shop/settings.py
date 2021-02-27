@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'mini_shop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -129,8 +133,8 @@ AUTH_USER_MODEL = 'shop.User'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'erlan.kubanychbekov.000@gmail.com'
-EMAIL_HOST_PASSWORD = 'xxxcikada'
+EMAIL_HOST_USER = config('email_user')
+EMAIL_HOST_PASSWORD = config('email_password')
 EMAIL_PORT = 587
 
 REST_FRAMEWORK = {
