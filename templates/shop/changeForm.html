@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{%block body%}
+<div class="d-flex justify-content-center">
+<form action="{%url 'user_change'%}" method="post" id="ChangeForm" class="form-group">
+    {%csrf_token%}
+    <input type="text" name="username" value="{{user.username}}" class="form-control">
+    <input type="email" name="email" value="{{user.email}}" class="form-control">
+    <input type="text" name="first_name" value="{{user.first_name}}" class="form-control">
+    <input type="text" name="last_name" value="{{user.last_name}}" class="form-control">
+    <input type="submit"  class="form-control">
+</form>
+</div>
+{%endblock%}
